@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(245, 82, 112, 220)),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
@@ -56,6 +56,14 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  String _hello = 'Test Layer';
+  var listItem = ['hola', 2, 10.5, 'well'];
+  static const Map<String, Color> _colors = <String, Color>{
+    'Red': Colors.red,
+    'Green': Colors.green,
+    'Blue': Colors.blue,
+    'Cyan': Colors.cyan,
+  };
 
   void _incrementCounter() {
     setState(() {
@@ -112,6 +120,20 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            Text('$_hello'),
+            Text('$listItem',),
+            for (final MapEntry<String, Color> entry in _colors.entries)
+              // The "id" can be any Object, not just a String.
+              LayoutId(
+                id: entry.key,
+                child: Container(
+                  color: entry.value,
+                  width: 500.0,
+                  height: 100.0,
+                  alignment: Alignment.center,
+                  child: Text(entry.key),
+                ),
+              ),
           ],
         ),
       ),
