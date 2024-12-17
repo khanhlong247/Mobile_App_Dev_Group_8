@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Flutter Demo 1-2-24-N05: Mobile Progamming'),
     );
   }
 }
@@ -56,14 +56,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-  String _hello = 'Hello';
-  var listItem = [1, 'hello', 2, 'goodbye'];
-  static const Map<String, Color> _colors = <String, Color>{
-    'Red': Colors.red,
-    'Green': Colors.green,
-    'Blue': Colors.blue,
-    'Cyan': Colors.cyan,
-  };
 
   void _incrementCounter() {
     setState(() {
@@ -120,22 +112,6 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            Text('$_hello'),
-            Text(
-              '$listItem',
-            ),
-            for (final MapEntry<String, Color> entry in _colors.entries)
-              // The "id" can be any Object, not just a String.
-              LayoutId(
-                id: entry.key,
-                child: Container(
-                  color: entry.value,
-                  width: 100.0,
-                  height: 100.0,
-                  alignment: Alignment.center,
-                  child: Text(entry.key),
-                ),
-              ),
           ],
         ),
       ),
