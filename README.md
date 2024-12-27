@@ -49,8 +49,15 @@ Timeline (dòng thời gian) của các địa điểm và hình ảnh.
 Bản đồ tương tác với hình ảnh và ghi chú đính kèm.
 Cho phép xuất nhật ký dưới dạng:
 PDF hoặc album ảnh.
-Tích hợp tính năng chia sẻ lên mạng xã hội như Facebook, Instagram (chia sẻ như 1 status trên wall cá nhân của mạng xã hội).
+Tích hợp tính năng chia sẻ lên mạng xã hội như Facebook, Instagram.
 
-### 4. Class Diagram
+### 4. Phân tích và thiết kế phần mềm
 
-![img](https://i.imgur.com/5awhTTy.png)
+#### 4.1. Class Diagram
+
+![Class Diagram](https://i.imgur.com/5awhTTy.png)
+
+#### 4.2. Sequence Diagram
+
+![Sequence Diagram](https://imgur.com/W5qIIQc.png)
+
