@@ -61,3 +61,6 @@ Tích hợp tính năng chia sẻ lên mạng xã hội như Facebook, Instagram
 
 ![Sequence Diagram](https://imgur.com/W5qIIQc.png)
 
+#### 4.3. Activity Diagram
+
+![Activity Diagram](https://imgur.com/QPeM5l4.jpeg)
