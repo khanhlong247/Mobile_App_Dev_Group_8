@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:html' as html;
 
 void main() => runApp(const TravelDiaryApp());
 
@@ -8,20 +9,20 @@ class TravelDiaryApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Directionality(
-        textDirection: TextDirection.ltr,
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text('Nhật ký Du lịch'),
-          ),
-          body: const CustomMultiChildLayoutExample(),
-          bottomNavigationBar: BottomNavigationBar(
-            items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-              BottomNavigationBarItem(icon: Icon(Icons.map), label: 'Map'),
-              BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Add'),
-            ],
-          ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Nhật ký Du lịch'),
+        ),
+        body: const CustomMultiChildLayoutExample(),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            BottomNavigationBarItem(icon: Icon(Icons.camera_alt), label: 'Camera'),
+            BottomNavigationBarItem(icon: Icon(Icons.history), label: 'History'),
+          ],
+          onTap: (index) {
+            // Thêm hành động tại đây nếu cần khi người dùng chọn tab
+          },
         ),
       ),
     );
@@ -38,10 +39,11 @@ class _TravelDiaryLayoutDelegate extends MultiChildLayoutDelegate {
   @override
   void performLayout(Size size) {
     // Kích thước từng phần
-    const double headerHeight = 150.0; // Phần ảnh hoặc GPS
-    const double listHeight = 300.0; // Danh sách nhật ký
+    const double headerHeightFactor = 0.4; // 40% màn hình cho phần GPS
+    final double headerHeight = size.height * headerHeightFactor; // Chiều cao header
+    final double listHeight = size.height - headerHeight; // Chiều cao danh sách nhật ký
 
-    // Layout phần đầu (ảnh + GPS)
+    // Layout phần GPS
     if (hasChild('header')) {
       layoutChild(
         'header',
@@ -50,23 +52,13 @@ class _TravelDiaryLayoutDelegate extends MultiChildLayoutDelegate {
       positionChild('header', Offset.zero);
     }
 
-    // Layout phần danh sách
+    // Layout phần danh sách nhật ký
     if (hasChild('list')) {
       layoutChild(
         'list',
         BoxConstraints.tightFor(width: size.width, height: listHeight),
       );
       positionChild('list', Offset(0, headerHeight));
-    }
-
-    // Layout phần footer (button hoặc các công cụ)
-    if (hasChild('footer')) {
-      final double footerHeight = size.height - headerHeight - listHeight;
-      layoutChild(
-        'footer',
-        BoxConstraints.tightFor(width: size.width, height: footerHeight),
-      );
-      positionChild('footer', Offset(0, headerHeight + listHeight));
     }
   }
 
@@ -86,17 +78,10 @@ class CustomMultiChildLayoutExample extends StatelessWidget {
         textDirection: Directionality.of(context),
       ),
       children: <Widget>[
-        // Phần đầu: Ảnh hoặc GPS
+        // Phần đầu: GPS
         LayoutId(
           id: 'header',
-          child: Container(
-            color: Colors.blueAccent,
-            alignment: Alignment.center,
-            child: const Text(
-              'Ảnh hoặc GPS',
-              style: TextStyle(color: Colors.white, fontSize: 18),
-            ),
-          ),
+          child: const GPSHeader(),
         ),
         // Phần danh sách nhật ký
         LayoutId(
@@ -105,24 +90,62 @@ class CustomMultiChildLayoutExample extends StatelessWidget {
             color: Colors.grey[300],
             alignment: Alignment.topCenter,
             child: const Text(
-              'Danh sách nhật ký',
+              'Danh sách ảnh',
               style: TextStyle(fontSize: 18),
             ),
           ),
         ),
-        // Phần footer: Nút hoặc công cụ
-        LayoutId(
-          id: 'footer',
-          child: Container(
-            color: Colors.green,
-            alignment: Alignment.center,
-            child: const Text(
-              'Công cụ',
-              style: TextStyle(color: Colors.white, fontSize: 18),
-            ),
-          ),
-        ),
       ],
+    );
+  }
+}
+
+class GPSHeader extends StatefulWidget {
+  const GPSHeader({super.key});
+
+  @override
+  State<GPSHeader> createState() => _GPSHeaderState();
+}
+
+class _GPSHeaderState extends State<GPSHeader> {
+  String _location = "Đang lấy vị trí...";
+
+  @override
+  void initState() {
+    super.initState();
+    _getCurrentLocation();
+  }
+
+  Future<void> _getCurrentLocation() async {
+    try {
+      html.window.navigator.geolocation.getCurrentPosition().then((position) {
+        final latitude = position.coords!.latitude;
+        final longitude = position.coords!.longitude;
+        setState(() {
+          _location = "Vĩ độ: $latitude, Kinh độ: $longitude";
+        });
+      }).catchError((error) {
+        setState(() {
+          _location = "Không thể lấy vị trí: $error";
+        });
+      });
+    } catch (e) {
+      setState(() {
+        _location = "Lỗi: $e";
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.blueAccent,
+      alignment: Alignment.center,
+      child: Text(
+        _location,
+        style: const TextStyle(color: Colors.white, fontSize: 18),
+        textAlign: TextAlign.center,
+      ),
     );
   }
 }
