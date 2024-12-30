@@ -9,6 +9,9 @@ class TravelDiaryApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+<<<<<<< HEAD
+      home: const MainPage(),
+=======
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Nhật ký Du lịch'),
@@ -25,18 +28,29 @@ class TravelDiaryApp extends StatelessWidget {
           },
         ),
       ),
+>>>>>>> 86f911a580ddb4a15812ff24891de994e110eec5
     );
   }
 }
 
-class _TravelDiaryLayoutDelegate extends MultiChildLayoutDelegate {
-  _TravelDiaryLayoutDelegate({
-    required this.textDirection,
-  });
-
-  final TextDirection textDirection;
+class MainPage extends StatefulWidget {
+  const MainPage({super.key});
 
   @override
+<<<<<<< HEAD
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  int _currentIndex = 0;
+
+  // Danh sách các màn hình
+  final List<Widget> _pages = [
+    const CustomMultiChildLayoutExample(), // Màn hình chính
+    const Center(child: Text('Camera Screen')), // Trang Camera (giả định)
+    const HistoryScreen(), // Trang Lịch sử
+  ];
+=======
   void performLayout(Size size) {
     // Kích thước từng phần
     const double headerHeightFactor = 0.4; // 40% màn hình cho phần GPS
@@ -61,10 +75,29 @@ class _TravelDiaryLayoutDelegate extends MultiChildLayoutDelegate {
       positionChild('list', Offset(0, headerHeight));
     }
   }
+>>>>>>> 86f911a580ddb4a15812ff24891de994e110eec5
 
   @override
-  bool shouldRelayout(covariant MultiChildLayoutDelegate oldDelegate) {
-    return true;
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Nhật ký Du lịch'),
+      ),
+      body: _pages[_currentIndex], // Hiển thị màn hình theo tab hiện tại
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex, // Chỉ mục hiện tại
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index; // Thay đổi chỉ mục khi nhấn
+          });
+        },
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.camera_alt), label: 'Camera'),
+          BottomNavigationBarItem(icon: Icon(Icons.history), label: 'History'),
+        ],
+      ),
+    );
   }
 }
 
@@ -78,12 +111,14 @@ class CustomMultiChildLayoutExample extends StatelessWidget {
         textDirection: Directionality.of(context),
       ),
       children: <Widget>[
+<<<<<<< HEAD
+=======
         // Phần đầu: GPS
+>>>>>>> 86f911a580ddb4a15812ff24891de994e110eec5
         LayoutId(
           id: 'header',
           child: const GPSHeader(),
         ),
-        // Phần danh sách nhật ký
         LayoutId(
           id: 'list',
           child: Container(
@@ -100,6 +135,45 @@ class CustomMultiChildLayoutExample extends StatelessWidget {
   }
 }
 
+<<<<<<< HEAD
+class _TravelDiaryLayoutDelegate extends MultiChildLayoutDelegate {
+  _TravelDiaryLayoutDelegate({
+    required this.textDirection,
+  });
+
+  final TextDirection textDirection;
+
+  @override
+  void performLayout(Size size) {
+    const double headerHeightFactor = 0.4;
+    final double headerHeight = size.height * headerHeightFactor;
+    final double listHeight = size.height - headerHeight;
+
+    if (hasChild('header')) {
+      layoutChild(
+        'header',
+        BoxConstraints.tightFor(width: size.width, height: headerHeight),
+      );
+      positionChild('header', Offset.zero);
+    }
+
+    if (hasChild('list')) {
+      layoutChild(
+        'list',
+        BoxConstraints.tightFor(width: size.width, height: listHeight),
+      );
+      positionChild('list', Offset(0, headerHeight));
+    }
+  }
+
+  @override
+  bool shouldRelayout(covariant MultiChildLayoutDelegate oldDelegate) {
+    return true;
+  }
+}
+
+=======
+>>>>>>> 86f911a580ddb4a15812ff24891de994e110eec5
 class GPSHeader extends StatefulWidget {
   const GPSHeader({super.key});
 
@@ -149,3 +223,34 @@ class _GPSHeaderState extends State<GPSHeader> {
     );
   }
 }
+<<<<<<< HEAD
+
+// Trang Lịch sử
+class HistoryScreen extends StatelessWidget {
+  const HistoryScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: ListView.builder(
+        itemCount: 10,
+        itemBuilder: (context, index) {
+          return Card(
+            margin: const EdgeInsets.all(10),
+            child: ListTile(
+              leading: const Icon(Icons.photo),
+              title: Text('Nhật ký #${index + 1}'),
+              subtitle: const Text('Chi tiết nhật ký'),
+              onTap: () {
+                // Hành động khi chọn nhật ký
+              },
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+=======
+>>>>>>> 86f911a580ddb4a15812ff24891de994e110eec5
