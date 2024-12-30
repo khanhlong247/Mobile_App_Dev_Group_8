@@ -9,26 +9,7 @@ class TravelDiaryApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-<<<<<<< HEAD
       home: const MainPage(),
-=======
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Nhật ký Du lịch'),
-        ),
-        body: const CustomMultiChildLayoutExample(),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.camera_alt), label: 'Camera'),
-            BottomNavigationBarItem(icon: Icon(Icons.history), label: 'History'),
-          ],
-          onTap: (index) {
-            // Thêm hành động tại đây nếu cần khi người dùng chọn tab
-          },
-        ),
-      ),
->>>>>>> 86f911a580ddb4a15812ff24891de994e110eec5
     );
   }
 }
@@ -37,7 +18,6 @@ class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
   @override
-<<<<<<< HEAD
   State<MainPage> createState() => _MainPageState();
 }
 
@@ -50,32 +30,6 @@ class _MainPageState extends State<MainPage> {
     const Center(child: Text('Camera Screen')), // Trang Camera (giả định)
     const HistoryScreen(), // Trang Lịch sử
   ];
-=======
-  void performLayout(Size size) {
-    // Kích thước từng phần
-    const double headerHeightFactor = 0.4; // 40% màn hình cho phần GPS
-    final double headerHeight = size.height * headerHeightFactor; // Chiều cao header
-    final double listHeight = size.height - headerHeight; // Chiều cao danh sách nhật ký
-
-    // Layout phần GPS
-    if (hasChild('header')) {
-      layoutChild(
-        'header',
-        BoxConstraints.tightFor(width: size.width, height: headerHeight),
-      );
-      positionChild('header', Offset.zero);
-    }
-
-    // Layout phần danh sách nhật ký
-    if (hasChild('list')) {
-      layoutChild(
-        'list',
-        BoxConstraints.tightFor(width: size.width, height: listHeight),
-      );
-      positionChild('list', Offset(0, headerHeight));
-    }
-  }
->>>>>>> 86f911a580ddb4a15812ff24891de994e110eec5
 
   @override
   Widget build(BuildContext context) {
@@ -111,10 +65,6 @@ class CustomMultiChildLayoutExample extends StatelessWidget {
         textDirection: Directionality.of(context),
       ),
       children: <Widget>[
-<<<<<<< HEAD
-=======
-        // Phần đầu: GPS
->>>>>>> 86f911a580ddb4a15812ff24891de994e110eec5
         LayoutId(
           id: 'header',
           child: const GPSHeader(),
@@ -135,7 +85,6 @@ class CustomMultiChildLayoutExample extends StatelessWidget {
   }
 }
 
-<<<<<<< HEAD
 class _TravelDiaryLayoutDelegate extends MultiChildLayoutDelegate {
   _TravelDiaryLayoutDelegate({
     required this.textDirection,
@@ -172,8 +121,6 @@ class _TravelDiaryLayoutDelegate extends MultiChildLayoutDelegate {
   }
 }
 
-=======
->>>>>>> 86f911a580ddb4a15812ff24891de994e110eec5
 class GPSHeader extends StatefulWidget {
   const GPSHeader({super.key});
 
@@ -223,7 +170,6 @@ class _GPSHeaderState extends State<GPSHeader> {
     );
   }
 }
-<<<<<<< HEAD
 
 // Trang Lịch sử
 class HistoryScreen extends StatelessWidget {
@@ -252,5 +198,3 @@ class HistoryScreen extends StatelessWidget {
     );
   }
 }
-=======
->>>>>>> 86f911a580ddb4a15812ff24891de994e110eec5
