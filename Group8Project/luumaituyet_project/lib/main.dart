@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:html' as html;
-import 'user_class.dart'; // Import lớp User
+import 'user_class.dart'; 
 import 'user_object.dart';
 void main() => runApp(const TravelDiaryApp());
 
