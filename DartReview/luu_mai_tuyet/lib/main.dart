@@ -109,7 +109,7 @@ class _TravelDiaryLayoutDelegate extends MultiChildLayoutDelegate {
     if (hasChild('list')) {
       layoutChild(
         'list',
-        BoxConstraints.tightFor(width: size.width, height: listHeight),
+BoxConstraints.tightFor(width: size.width, height: listHeight),
       );
       positionChild('list', Offset(0, headerHeight));
     }
@@ -197,4 +197,8 @@ class HistoryScreen extends StatelessWidget {
       ),
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 51bd8f033abdd850a02e4643e323bab92969651e

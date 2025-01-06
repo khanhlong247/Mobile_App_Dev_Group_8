@@ -64,3 +64,17 @@ Tích hợp tính năng chia sẻ lên mạng xã hội như Facebook, Instagram
 #### 4.3. Activity Diagram
 
 ![Activity Diagram](https://imgur.com/QPeM5l4.jpeg)
+
+### 5. Một số giao diện
+
+#### 5.1. Trang chủ
+
+![img](https://i.imgur.com/QzMCvWp.png)
+
+#### 5.2. Camera screen
+
+![img](https://i.imgur.com/adILbFW.png)
+
+#### 5.3. History screen
+
+![Imgur](https://imgur.com/G1yo5dp.png)
