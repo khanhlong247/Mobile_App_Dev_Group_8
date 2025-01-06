@@ -28,9 +28,9 @@ class _MainPageState extends State<MainPage> {
   // Danh sách các màn hình
   final List<Widget> _pages = [
     const CustomMultiChildLayoutExample(), // Màn hình chính
-    const Center(child: Text('Camera Screen')), // Trang Camera (giả định)
+    const Center(child: Text('Camera Screen')), // Trang Camera
     const HistoryScreen(), // Trang Lịch sử
-    UserGridScreen(), // Trang User Grid
+    UserGridScreen(), // Trang User
   ];
 
   @override
@@ -39,12 +39,12 @@ class _MainPageState extends State<MainPage> {
       appBar: AppBar(
         title: const Text('Nhật ký Du lịch'),
       ),
-      body: _pages[_currentIndex], // Hiển thị màn hình theo tab hiện tại
+      body: _pages[_currentIndex], 
       bottomNavigationBar: BottomNavigationBar(
-      currentIndex: _currentIndex, // Chỉ mục hiện tại
+      currentIndex: _currentIndex, 
       onTap: (index) {
         setState(() {
-          _currentIndex = index; // Thay đổi chỉ mục khi nhấn
+          _currentIndex = index; 
         });
       },
       backgroundColor: Colors.blueAccent, // Màu nền
@@ -62,7 +62,6 @@ class _MainPageState extends State<MainPage> {
   }
 }
 
-// Màn hình chính với CustomMultiChildLayout
 class CustomMultiChildLayoutExample extends StatelessWidget {
   const CustomMultiChildLayoutExample({super.key});
 
@@ -93,7 +92,6 @@ class CustomMultiChildLayoutExample extends StatelessWidget {
   }
 }
 
-// Delegate để bố trí layout
 class _TravelDiaryLayoutDelegate extends MultiChildLayoutDelegate {
   _TravelDiaryLayoutDelegate({
     required this.textDirection,
