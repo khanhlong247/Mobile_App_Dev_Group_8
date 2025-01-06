@@ -40,3 +40,7 @@ b. Code
 - user_grid_screen.dart
 
 ![Imgur](https://imgur.com/Mi2SpAE.png)
+
+## 3. Truy cập code files
+
+../Mobile_App_Dev_Group_8/Khanh's-branch/DartReview/MidTermTest/mid_term_test
