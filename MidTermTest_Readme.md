@@ -23,21 +23,21 @@ Hiển thị trên Mobile App 05 bản ghi người dùng theo dạng GridView. 
 
 ## 2. Kết quả
 
-a. Ảnh màn hình 5 bản ghi người dùng trên App
+**a. Ảnh màn hình 5 bản ghi người dùng trên App**
 
-![Imgur](https://imgur.com/gff8cqF.png)
+![Imgur](https://imgur.com/QRI8mA4.png)
 
-b. Code
+**b. Code chính**
 
-- main.dart
+**- main.dart**
 
-![Imgur](https://imgur.com/QKdYBTz.png)
+![Imgur](https://imgur.com/REdxioB.png)
 
-- user.dart
+**- user.dart**
 
 ![Imgur](https://imgur.com/NwS4CHA.png)
 
-- user_grid_screen.dart
+**- user_grid_screen.dart**
 
 ![Imgur](https://imgur.com/Mi2SpAE.png)
 
