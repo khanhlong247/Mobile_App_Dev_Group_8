@@ -5,7 +5,7 @@
 
 
 
-Xem Giấy
+
 // Class User
 class User {
   String username;
