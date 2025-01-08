@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:html' as html;
 import 'user_class.dart'; 
 import 'user_object.dart';
+import 'diary_detail_page.dart';
+
 void main() => runApp(const TravelDiaryApp());
 
 class TravelDiaryApp extends StatelessWidget {
@@ -191,7 +193,6 @@ class HistoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       body: ListView.builder(
         itemCount: 10,
         itemBuilder: (context, index) {
@@ -202,7 +203,22 @@ class HistoryScreen extends StatelessWidget {
               title: Text('Nhật ký #${index + 1}'),
               subtitle: const Text('Chi tiết nhật ký'),
               onTap: () {
-                // Hành động khi chọn nhật ký
+                // Điều hướng đến trang chi tiết
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DiaryDetailPage(
+                      title: 'Nhật ký #${index + 1}',
+                      description:
+                          'Vịnh Hạ Long một kỳ quan mà mẹ thiên nhiên mang tặng cho đất nước Việt Nam',
+                      prepTime: '25 phút',
+                      cookTime: '3 người',
+                      feeds: 'xe máy',
+                      imageUrl:
+                          'https://dulichtoday.vn/wp-content/uploads/2017/04/vinh-Ha-Long.jpg',
+                    ),
+                  ),
+                );
               },
             ),
           );
@@ -211,6 +227,7 @@ class HistoryScreen extends StatelessWidget {
     );
   }
 }
+
 
 class UserListPage extends StatelessWidget {
   const UserListPage({super.key});
