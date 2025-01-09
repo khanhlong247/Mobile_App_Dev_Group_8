@@ -65,6 +65,57 @@ Tích hợp tính năng chia sẻ lên mạng xã hội như Facebook, Instagram
 
 ![Activity Diagram](https://imgur.com/QPeM5l4.jpeg)
 
+#### 4.4. Use-case
+
+![Use-case](https://imgur.com/RMAr6S5.jpeg)
+
+#### 4.5. Sơ đồ chức năng
+
+**a. Ghi lại hành trình**
+
+<table>
+  <tr>
+    <td><img src="https://imgur.com/22S7SSZ.jpg" alt="Image 1" width="500"></td>
+    <td><img src="https://imgur.com/5XQhcyD.jpg" alt="Image 2" width="500"></td>
+  </tr>
+</table>
+
+**b. Thêm ảnh và video**
+
+<table>
+  <tr>
+    <td><img src="https://imgur.com/I2y6kG6.jpg" alt="Image 1" width="500"></td>
+    <td><img src="https://imgur.com/cgEdJkv.jpg" alt="Image 2" width="500"></td>
+  </tr>
+</table>
+
+**c. Chỉnh sửa ảnh/video**
+
+<table>
+  <tr>
+    <td><img src="https://imgur.com/MNERK1H.jpg" alt="Image 1" width="500"></td>
+    <td><img src="https://imgur.com/IeNUgQU.jpg" alt="Image 2" width="500"></td>
+  </tr>
+</table>
+
+**d. Hiển thị hành trình**
+
+<table>
+  <tr>
+    <td><img src="https://imgur.com/lTOng18.jpg" alt="Image 1" width="500"></td>
+    <td><img src="https://imgur.com/flhzcSh.jpg" alt="Image 2" width="500"></td>
+  </tr>
+</table>
+
+**e. Chia sẻ**
+
+<table>
+  <tr>
+    <td><img src="https://imgur.com/q8Msxc9.jpg" alt="Image 1" width="500"></td>
+    <td><img src="https://imgur.com/VQWPxnt.jpg" alt="Image 2" width="500"></td>
+  </tr>
+</table>
+
 ### 5. Một số giao diện
 
 #### 5.1. Trang chủ
@@ -78,3 +129,6 @@ Tích hợp tính năng chia sẻ lên mạng xã hội như Facebook, Instagram
 #### 5.3. History screen
 
 ![Imgur](https://imgur.com/G1yo5dp.png)
+
+## Gallery of Images
+
