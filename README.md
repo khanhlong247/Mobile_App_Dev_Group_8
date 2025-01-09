@@ -129,6 +129,3 @@ Tích hợp tính năng chia sẻ lên mạng xã hội như Facebook, Instagram
 #### 5.3. History screen
 
 ![Imgur](https://imgur.com/G1yo5dp.png)
-
-## Gallery of Images
-
