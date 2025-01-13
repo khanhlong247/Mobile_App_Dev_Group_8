@@ -25,13 +25,13 @@ Hiển thị trên Mobile App 05 bản ghi người dùng theo dạng GridView. 
 
 **a. Ảnh màn hình 5 bản ghi người dùng trên App**
 
-![Imgur](https://imgur.com/QRI8mA4.png)
+![Ảnh màn hình](https://imgur.com/QRI8mA4.png)
 
 **b. Code chính**
 
 **- main.dart**
 
-![Imgur](https://imgur.com/REdxioB.png)
+![main.dart](https://imgur.com/REdxioB.png)
 
 **- user.dart**
 
