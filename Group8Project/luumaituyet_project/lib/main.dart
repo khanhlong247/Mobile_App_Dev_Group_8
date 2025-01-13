@@ -214,8 +214,9 @@ class HistoryScreen extends StatelessWidget {
                       prepTime: '25 phút',
                       cookTime: '3 người',
                       feeds: 'xe máy',
-                      imageUrl:
-                          'https://dulichtoday.vn/wp-content/uploads/2017/04/vinh-Ha-Long.jpg',
+                      //imageUrl:
+                          //'https://dulichtoday.vn/wp-content/uploads/2017/04/vinh-Ha-Long.jpg',
+                  
                     ),
                   ),
                 );

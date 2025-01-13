@@ -6,7 +6,6 @@ class DiaryDetailPage extends StatelessWidget {
   final String prepTime;
   final String cookTime;
   final String feeds;
-  final String imageUrl;
 
   const DiaryDetailPage({
     super.key,
@@ -15,7 +14,6 @@ class DiaryDetailPage extends StatelessWidget {
     required this.prepTime,
     required this.cookTime,
     required this.feeds,
-    required this.imageUrl,
   });
 
   @override
@@ -24,54 +22,89 @@ class DiaryDetailPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Row(
-          children: [
-            // Cột chứa thông tin
-            Expanded(
-              flex: 2,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: const TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    description,
-                    style: const TextStyle(fontSize: 16),
-                  ),
-                  const SizedBox(height: 10),
-                  Row(
-                    children: [
-                      const Icon(Icons.star, color: Colors.orange),
-                      const SizedBox(width: 5),
-                      Text('Tuyệt vời', style: TextStyle(color: Colors.grey)),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      _buildInfoColumn(Icons.timer, 'TIME:', prepTime),
-                      _buildInfoColumn(Icons.people, 'GROUP:', cookTime),
-                      _buildInfoColumn(Icons.directions_car, 'TRANSPORT:', feeds),
-                    ],
-                  ),
-                ],
+      body: Container(
+        padding: const EdgeInsets.all(10.0), // Khoảng cách từ lề màn hình
+        alignment: Alignment.topLeft, // Căn góc trên bên trái
+        child: Container(
+          padding: const EdgeInsets.all(10.0),
+          constraints: const BoxConstraints(
+            //maxWidth: 800, // Giới hạn chiều rộng
+            maxHeight: 400, // Giới hạn chiều cao
+          ),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10.0),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black12,
+                blurRadius: 10.0,
+                offset: Offset(0, 4),
               ),
-            ),
-            // Ảnh bên phải
-            Expanded(
-              flex: 3,
-              child: Image.network(imageUrl, fit: BoxFit.cover),
-            ),
-          ],
+            ],
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start, // Căn sát phía trên
+            children: [
+              // Phần thông tin bên trái
+              Flexible(
+                flex: 2,
+                child: Container(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start, // Căn trái
+                    children: [
+                      Text(
+                        title,
+                        style: const TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        description,
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                      const SizedBox(height: 10),
+                      Row(
+                        children: [
+                          const Icon(Icons.star, color: Colors.orange),
+                          const SizedBox(width: 5),
+                          const Text(
+                            'Tuyệt vời',
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          _buildInfoColumn(Icons.timer, 'TIME:', prepTime),
+                          _buildInfoColumn(Icons.people, 'GROUP:', cookTime),
+                          _buildInfoColumn(Icons.directions_car, 'TRANSPORT:', feeds),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(width: 20), // Khoảng cách giữa thông tin và ảnh
+              // Phần hình ảnh bên phải
+              Flexible(
+                flex: 3,
+                child: Container(
+                  alignment: Alignment.topCenter, // Đặt ảnh sát trên
+                  child: Image.asset(
+                    'assets/vinh-Ha-Long.jpg',
+                    fit: BoxFit.contain,
+                    //width: MediaQuery.of(context).size.width * 0.3,
+                    //height: MediaQuery.of(context).size.height * 0.3,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
