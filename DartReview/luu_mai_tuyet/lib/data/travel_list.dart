@@ -1,6 +1,6 @@
 // travel_data.dart
 
-final List<Map<String, String>> travelHistory = [
+/*final List<Map<String, String>> travelHistory = [
   {
     'title': 'Hà Giang Loop',
     'description': 'Khám phá cung đường đẹp nhất miền Bắc Việt Nam.',
@@ -34,4 +34,28 @@ final List<Map<String, String>> travelHistory = [
     'imageUrl': 'assets/hoi-an.jpg',
   },
   // Thêm các chuyến đi khác nếu cần
+];*/
+
+// lib/data/travel_data.dart
+
+import '../models/travel.dart';
+
+final List<TravelDiary> travelDiaries = [
+  TravelDiary(
+    title: 'Nhật ký 1: Miền Bắc Việt Nam',
+    description: 'Hành trình khám phá vẻ đẹp thiên nhiên miền Bắc.',
+    trips: [
+      Trip(name: 'Hà Giang', imagePath: 'assets/vinh-Ha-Long.jpg'),
+      Trip(name: 'Vịnh Hạ Long', imagePath: 'assets/vinh-Ha-Long.jpg'),
+    ],
+  ),
+  TravelDiary(
+    title: 'Nhật ký 2: Miền Trung Việt Nam',
+    description: 'Hành trình khám phá vẻ đẹp cổ kính miền Trung.',
+    trips: [
+      Trip(name: 'Đà Lạt', imagePath: 'assets/vinh-Ha-Long.jpg'),
+      Trip(name: 'Hội An', imagePath: 'assets/vinh-Ha-Long.jpg'),
+    ],
+  ),
 ];
+

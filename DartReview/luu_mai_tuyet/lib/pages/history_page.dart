@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'diary_detail_page.dart';
+//import 'diary_detail_page.dart';
+import 'trip_list_page.dart';
 import '../data/travel_list.dart';
 /**class HistoryPage extends StatelessWidget {
   const HistoryPage({super.key});
@@ -52,7 +53,7 @@ import '../data/travel_list.dart';
   }
 }*/
 
-class HistoryPage extends StatelessWidget {
+/*class HistoryPage extends StatelessWidget {
   const HistoryPage({super.key});
 
   @override
@@ -83,6 +84,39 @@ class HistoryPage extends StatelessWidget {
                           //'https://dulichtoday.vn/wp-content/uploads/2017/04/vinh-Ha-Long.jpg',
                   
                     ),
+                  ),
+                );
+              },
+            ),
+          );
+        },
+      ),
+    );
+  }
+}*/
+
+class HistoryPage extends StatelessWidget {
+  const HistoryPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Lịch sử Nhật ký Du lịch')),
+      body: ListView.builder(
+        itemCount: travelDiaries.length,
+        itemBuilder: (context, index) {
+          final diary = travelDiaries[index];
+          return Card(
+            margin: const EdgeInsets.all(10),
+            child: ListTile(
+              leading: const Icon(Icons.book),
+              title: Text(diary.title),
+              subtitle: Text(diary.description),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TripListPage(diary: diary),
                   ),
                 );
               },
