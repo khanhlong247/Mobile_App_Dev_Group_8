@@ -11,6 +11,225 @@ class TripListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Danh sách Chuyến Đi"),
+      ),
+      body: ListView.builder(
+        itemCount: diary.trips.length,
+        itemBuilder: (context, index) {
+          final trip = diary.trips[index];
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => TripDetailPage(trip: trip),
+                ),
+              );
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  // Hình ảnh
+                  Expanded(
+                    child: Image.network(
+                      trip.imagePath,
+                      height: 150,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  // Chi tiết
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // Điểm đến
+                        Text(
+                          trip.name,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 5),
+                        // Mô tả
+                        Text(trip.description),
+                        const SizedBox(height: 10),
+                        // Đánh giá
+                        Row(
+                          children: [
+                            Row(
+                              children: List.generate(
+                                5,
+                                (star) => Icon(
+                                  Icons.star,
+                                  color: star < trip.rating
+                                      ? Colors.yellow
+                                      : Colors.grey,
+                                  size: 16,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            Text('${trip.reviews} Reviews'),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                        // Thông tin thêm
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              children: [
+                                const Icon(Icons.date_range, size: 16),
+                                Text(' ${trip.travelDate}'),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                const Icon(Icons.access_time, size: 16),
+                                Text(' ${trip.travelDuration}'),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                const Icon(Icons.directions_car, size: 16),
+                                Text(' ${trip.travelMode}'),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+
+/*import 'package:flutter/material.dart';
+//import '../data/travel_list.dart';
+import '../models/travel.dart';
+import 'trip_detail_page.dart';
+
+class TripListPage extends StatelessWidget {
+  final TravelDiary diary;
+
+  const TripListPage({super.key, required this.diary});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Danh sách Chuyến Đi"),
+      ),
+      body: ListView.builder(
+        itemCount: diary.trips.length,
+        itemBuilder: (context, index) {
+          final trip = diary.trips[index];
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+      
+              children: [
+                // Hình ảnh
+                Expanded(
+                  child: Image.network(
+                    trip.imagePath,
+                    height: 150,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                const SizedBox(width: 8),
+                // Chi tiết
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Điểm đến
+                      Text(
+                        trip.name,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 5),
+                      // Mô tả
+                      Text(trip.description),
+                      const SizedBox(height: 10),
+                      // Đánh giá
+                      Row(
+                        children: [
+                          Row(
+                            children: List.generate(
+                              5,
+                              (star) => Icon(
+                                Icons.star,
+                                color: star < trip.rating
+                                    ? Colors.yellow
+                                    : Colors.grey,
+                                size: 16,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          Text('${trip.reviews} Reviews'),
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+                      // Thông tin thêm
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: [
+                              const Icon(Icons.date_range, size: 16),
+                              Text(' ${trip.travelDate}'),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              const Icon(Icons.access_time, size: 16),
+                              Text(' ${trip.travelDuration}'),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              const Icon(Icons.directions_car, size: 16),
+                              Text(' ${trip.travelMode}'),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+}*/
+
+/*class TripListPage extends StatelessWidget {
+  final TravelDiary diary;
+
+  const TripListPage({super.key, required this.diary});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
       appBar: AppBar(title: Text(diary.title)),
       body: ListView.builder(
         itemCount: diary.trips.length,
@@ -41,7 +260,7 @@ class TripListPage extends StatelessWidget {
       ),
     );
   }
-}
+}*/
 
 
 /*class TripListPage extends StatefulWidget {
