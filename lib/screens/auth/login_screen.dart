@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:blog_app/screens/home_screen.dart';
-import 'package:blog_app/screens/forgot_password_screen.dart'; // Import thêm ForgotPasswordScreen
+import 'package:blog_app/screens/auth/forgot_password_screen.dart'; // Import thêm ForgotPasswordScreen
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);

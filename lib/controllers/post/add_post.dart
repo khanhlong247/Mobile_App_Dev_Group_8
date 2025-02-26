@@ -13,7 +13,7 @@ import 'dart:typed_data';
 import 'package:blog_app/models/post.dart';
 
 class AddPostScreen extends StatefulWidget {
-  final String topicId; 
+  final String topicId;
   const AddPostScreen({Key? key, required this.topicId}) : super(key: key);
 
   @override
@@ -22,18 +22,31 @@ class AddPostScreen extends StatefulWidget {
 
 class _AddPostScreenState extends State<AddPostScreen> {
   bool showSpinner = false;
+
+  // Trước đây:
+  // late DatabaseReference postRef = FirebaseDatabase.instance
+  //     .ref()
+  //     .child('Topics')
+  //     .child(widget.topicId)
+  //     .child('Post List');
+  //
+  // Giờ thay thế:
+  final String userId = FirebaseAuth.instance.currentUser?.uid ?? '';
   late DatabaseReference postRef = FirebaseDatabase.instance
       .ref()
+      .child('Users')
+      .child(userId)
       .child('Topics')
       .child(widget.topicId)
       .child('Post List');
+
   FirebaseAuth _auth = FirebaseAuth.instance;
-  
-  List<File> _images = []; 
-  List<Uint8List> _imagesBytes = []; 
-  
+
+  List<File> _images = [];
+  List<Uint8List> _imagesBytes = [];
+
   final picker = ImagePicker();
-  
+
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
   TextEditingController dateController = TextEditingController();
@@ -54,7 +67,8 @@ class _AddPostScreenState extends State<AddPostScreen> {
         }
       } else {
         setState(() {
-          _images.addAll(pickedFiles.map((xfile) => File(xfile.path)).toList());
+          _images
+              .addAll(pickedFiles.map((xfile) => File(xfile.path)).toList());
         });
       }
     } else {
@@ -85,7 +99,8 @@ class _AddPostScreenState extends State<AddPostScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           content: SizedBox(
             height: 140,
             child: Column(
@@ -110,7 +125,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
             ),
           ),
         );
-      }
+      },
     );
   }
 
@@ -134,9 +149,8 @@ class _AddPostScreenState extends State<AddPostScreen> {
       var request = http.MultipartRequest('POST', uri);
       request.fields['upload_preset'] = 'unsigned_preset';
       request.fields['public_id'] = 'post_${date}_$i';
-      request.files.add(
-        http.MultipartFile.fromBytes('file', imagesBytes[i], filename: 'upload_$i.jpg')
-      );
+      request.files.add(http.MultipartFile.fromBytes('file', imagesBytes[i],
+          filename: 'upload_$i.jpg'));
       var response = await request.send();
       if (response.statusCode == 200) {
         var resStream = await response.stream.bytesToString();
@@ -160,8 +174,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
       request.fields['upload_preset'] = 'unsigned_preset';
       request.fields['public_id'] = 'post_${date}_$i';
       request.files.add(
-        http.MultipartFile.fromBytes('file', bytes, filename: 'upload_$i.jpg')
-      );
+          http.MultipartFile.fromBytes('file', bytes, filename: 'upload_$i.jpg'));
       var response = await request.send();
       if (response.statusCode == 200) {
         var resStream = await response.stream.bytesToString();
@@ -181,7 +194,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
       inAsyncCall: showSpinner,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Upload Post', style: TextStyle(color: Colors.white)),
+          title: const Text('Upload Trip', style: TextStyle(color: Colors.white)),
           centerTitle: true,
           backgroundColor: Colors.deepOrange,
           elevation: 5,
@@ -202,7 +215,9 @@ class _AddPostScreenState extends State<AddPostScreen> {
                       color: Colors.grey.shade200,
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    child: const Center(child: Text("Tap to add images", style: TextStyle(fontSize: 16))),
+                    child: const Center(
+                        child: Text("Tap to add images",
+                            style: TextStyle(fontSize: 16))),
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -226,7 +241,8 @@ class _AddPostScreenState extends State<AddPostScreen> {
                 const SizedBox(height: 30),
                 Card(
                   elevation: 5,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16)),
                   child: Padding(
                     padding: const EdgeInsets.all(16),
                     child: Form(
@@ -237,7 +253,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                             keyboardType: TextInputType.text,
                             decoration: const InputDecoration(
                               labelText: 'Title',
-                              hintText: 'Enter post title',
+                              hintText: 'Enter trip title',
                               border: OutlineInputBorder(),
                             ),
                           ),
@@ -249,7 +265,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                             maxLines: 5,
                             decoration: const InputDecoration(
                               labelText: 'Description',
-                              hintText: 'Enter post description',
+                              hintText: 'Enter trip description',
                               border: OutlineInputBorder(),
                             ),
                           ),
@@ -259,7 +275,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                             keyboardType: TextInputType.text,
                             decoration: const InputDecoration(
                               labelText: 'Date',
-                              hintText: 'Enter the date of post',
+                              hintText: 'Enter date',
                               border: OutlineInputBorder(),
                             ),
                           ),
@@ -269,7 +285,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                             keyboardType: TextInputType.number,
                             decoration: const InputDecoration(
                               labelText: 'Duration',
-                              hintText: 'Enter the duration of your journey',
+                              hintText: 'Enter duration (in day)',
                               border: OutlineInputBorder(),
                             ),
                           ),
@@ -279,14 +295,15 @@ class _AddPostScreenState extends State<AddPostScreen> {
                             keyboardType: TextInputType.text,
                             decoration: const InputDecoration(
                               labelText: 'Vehicle',
-                              hintText: 'Enter the vehicle',
+                              hintText: 'Enter your vehicle',
                               border: OutlineInputBorder(),
                             ),
                           ),
                           const SizedBox(height: 20),
                           TextFormField(
                             controller: ratingController,
-                            keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                            keyboardType:
+                                const TextInputType.numberWithOptions(decimal: true),
                             decoration: const InputDecoration(
                               labelText: 'Rating',
                               hintText: 'Enter rating (1-5 stars)',
@@ -299,7 +316,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                             keyboardType: TextInputType.text,
                             decoration: const InputDecoration(
                               labelText: 'Reviews',
-                              hintText: 'Enter your reviews',
+                              hintText: 'Enter number of reviews',
                               border: OutlineInputBorder(),
                             ),
                           ),
@@ -349,13 +366,16 @@ class _AddPostScreenState extends State<AddPostScreen> {
                         pEmail: user!.email.toString(),
                         uid: user.uid.toString(),
                         pDate: dateController.text,
-                        pDuration: int.tryParse(durationController.text) ?? 0,
+                        pDuration:
+                            int.tryParse(durationController.text) ?? 0,
                         pMode: modeController.text,
-                        pRating: double.tryParse(ratingController.text) ?? 0.0,
-                        pReviews: int.tryParse(reviewsController.text) ?? 0,
+                        pRating:
+                            double.tryParse(ratingController.text) ?? 0.0,
+                        pReviews:
+                            int.tryParse(reviewsController.text) ?? 0,
                       );
                       await postRef.child(date.toString()).set(newPost.toMap()).then((value) {
-                        toastMessage('Post Published');
+                        toastMessage('Trip Published');
                         setState(() {
                           showSpinner = false;
                         });

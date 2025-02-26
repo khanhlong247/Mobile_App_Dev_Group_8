@@ -1,4 +1,4 @@
-import 'package:blog_app/screens/login_screen.dart';
+import 'package:blog_app/screens/auth/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:blog_app/widgets/round_button.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';

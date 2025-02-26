@@ -34,10 +34,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      title: 'MemoMap',
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
+        scaffoldBackgroundColor: Colors.grey[50],
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+            elevation: 5,
+          ),
+        ),
       ),
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }
