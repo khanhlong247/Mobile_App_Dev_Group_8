@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "687308783617",
+    "project_id": "blog-app-flutter-f2a6b",
+    "storage_bucket": "blog-app-flutter-f2a6b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687308783617:android:c4bb67e1b82013da3d4000",
+        "android_client_info": {
+          "package_name": "com.groupeight.blog_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJAH4OO5D9lUn9OeXpoxC5GoR-6R8607g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
