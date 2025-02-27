@@ -131,3 +131,13 @@ Ngoài ra, folder "widgets" chứa các mẫu giao diện sử dụng nhiều tr
 **Bước 5:** Chạy ứng dụng
 
 - Mở máy ảo từ Android Studio và chạy dòng lệnh `flutter run` để chạy ứng dụng.
+
+### 9. Demo
+
+**link demo: https://khanhlong247.github.io/**
+
+**Tài khoản thử nghiệm:**
+
+Email: admin@gmail.com
+
+Mật khẩu: 123456
