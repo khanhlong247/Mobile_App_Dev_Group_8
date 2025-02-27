@@ -12,54 +12,55 @@
 
 ### 2. Mô tả đề tài
 
-**Ứng dụng MemoMap** là một ứng dụng cho phép người dùng ***ghi lại*** các khoảnh khắc (ảnh hoặc video) tại các nơi người dùng đi qua, ***lưu lại*** lịch sử bản ghi và lịch sử địa điểm của bản ghi đó trên tài khoản người dùng qua định vị GPS. Người dùng có thể ***chỉnh sửa*** lên các bản ghi như tạo ghi chú cho các câu chuyện, thêm các biểu tượng cảm xúc,...một cách dễ dàng. Ngoài ra người dùng có thẻ ***chia sẻ*** các bản ghi như là nhật ký du lịch lên trên các mạng xã hội.
+**Ứng dụng MemoMap** là một ứng dụng cho phép người dùng ***ghi lại*** các khoảnh khắc (ảnh) tại các nơi người dùng đi qua, ***lưu lại*** lịch sử bản ghi và lịch sử địa điểm của bản ghi đó trên tài khoản người dùng. Người dùng có thể ***chỉnh sửa*** lên các bản ghi như viết cảm nhạn, thêm đánh giá,...một cách dễ dàng. Ngoài ra người dùng có thẻ ***chia sẻ*** các bản ghi như là nhật ký du lịch lên trên các mạng xã hội.
+
+**Đối tượng sử dụng (phạm vi người dùng):** bao gồm các cá nhân có mong muốn lưu lại các khoảnh khắc trong chuyến đi du lịch và ghi lại cảm nhận của bản thân đối với khoảnh khắc đó.
 
 ### 3. Các tính năng chính
-
-#### a. Ghi lại hành trình bằng GPS
-
-- Lưu tọa độ vị trí thực tế khi người dùng thêm địa điểm vào nhật ký.
-- Cho phép xem các điểm đã lưu trên bản đồ tích hợp (Google Maps hoặc Mapbox).
-- Tính năng ghi lại lộ trình tự động dựa trên GPS trong suốt chuyến đi (nếu người dùng cho phép).
   
-#### b. Thêm ảnh và video vào địa điểm
+#### a. Xác Thực Người Dùng (Authentication)
 
 Cho phép người dùng:
--	Chụp ảnh hoặc quay video trực tiếp bằng camera.
--	Tải lên ảnh/video từ thư viện thiết bị.
-     -    Tự động gắn vị trí (geotag) và thời gian vào ảnh/video khi tải lên.
+-	Lựa chọn giữa đăng nhập (Login) hoặc đăng ký (Register).
+-	Đăng nhập bằng email và mật khẩu.
+-	Khôi phục mật khẩu khi quên.
        
-#### c. Viết mô tả và cảm xúc
+#### b. Quản Lý Chủ Đề (Topic Management)
 
-Cho phép người dùng ghi chú:
--	Tên địa điểm.
--	Cảm xúc, trải nghiệm hoặc mô tả chi tiết.
-     -    Tính năng sử dụng emoji hoặc stickers để diễn tả cảm xúc.
-       
-#### d. Hiển thị hành trình trên bản đồ
+Cho phép người dùng:
+-	Tạo mới một chủ đề (Travel).
+-	Chỉnh sửa thông tin Travel đã tạo.
+-	Hiển thị chi tiết của một Travel và danh sách bài đăng (Trip) thuộc chủ đề đó.
 
-Tích hợp bản đồ với các tính năng:
-Hiển thị tất cả địa điểm đã lưu dưới dạng điểm.
-Kết nối các điểm bằng đường đi thể hiện lộ trình của chuyến đi.
-Xem chi tiết từng địa điểm khi nhấn vào điểm đó.
+#### c. Quản Lý Bài Đăng (Post Management)
 
-#### e. Xem lại và chia sẻ nhật ký du lịch
+Cho phép người dùng:
+- Tạo bài đăng (Trip) mới trong một chủ đề (Travel).
+- Chỉnh sửa bài đăng đã tạo.
+- Hiển thị chi tiết bài đăng.
 
-Timeline (dòng thời gian) của các địa điểm và hình ảnh.
-Bản đồ tương tác với hình ảnh và ghi chú đính kèm.
-Cho phép xuất nhật ký dưới dạng:
-PDF hoặc album ảnh.
-Tích hợp tính năng chia sẻ lên mạng xã hội như Facebook, Instagram.
+#### d. Cài Đặt và Quản Lý Tài Khoản
+
+Cho phép người dùng:
+- Thay đổi mật khẩu và đăng xuất.
+
+#### e. Hỗ Trợ Xử Lý Hình Ảnh
+
+Cho phép người dùng:
+- Chụp ảnh trực tiếp bằng camera.
+- Tải ảnh từ thư viện thiết bị.
 
 ### 4. Phân tích và thiết kế phần mềm
 
 #### 4.1. Class Diagram
 
-![Class Diagram](https://i.imgur.com/5awhTTy.png)
+![Class Diagram](https://imgur.com/vIDWyNQ.png)
 
-#### 4.2. Sequence Diagram
+Trong đó: Các đối tượng Travel được tạo ra từ Class Topic và các đối tượng Trip được tạo ra từ Class Post.
 
-![Sequence Diagram](https://imgur.com/W5qIIQc.png)
+#### 4.2. Use-case
+
+![Use-case](https://imgur.com/PChNF1Q.png)
 
 #### 4.3. Activity Diagram
 
@@ -67,14 +68,44 @@ Tích hợp tính năng chia sẻ lên mạng xã hội như Facebook, Instagram
 
 ### 5. Một số giao diện
 
-#### 5.1. Trang chủ
+#### 5.1. Đăng nhập
 
-![img](https://i.imgur.com/QzMCvWp.png)
+![Màn hình đăng nhập](https://imgur.com/ilWPHQR.png)
 
-#### 5.2. Camera screen
+#### 5.2. Đăng ký
 
-![img](https://i.imgur.com/adILbFW.png)
+![Màn hình đăng ký](https://imgur.com/VtQKdhR.png)
 
-#### 5.3. History screen
+#### 5.3. Danh sách các Travel
 
-![Imgur](https://imgur.com/G1yo5dp.png)
+![Danh sách Travel](https://imgur.com/OeDBpkT.png)
+
+#### 5.4. Danh sách các Trip
+
+![Danh sách Trip](https://imgur.com/fPzEklB.png)
+
+#### 5.5. Tìm kiếm Travel
+
+![Tìm kiếm Travel](https://imgur.com/265q6Y5.png)
+
+### 6. Cài đặt và chạy ứng dụng
+
+#### Yêu cầu: Đã cài đặt Android Studio, Flutter SDK, Dart SDK.
+
+**Bước 1:** Tạo folder để chứa source code của dự án
+
+**Bước 2:** Tải code của dự án về bằng cách clone từ github
+
+- Sử dụng: `git clone https://github.com/khanhlong247/Mobile_App_Dev_Group_8.git`
+
+**Bước 3:** Truy cập vào code của dự án
+
+- Đường dẫn tới source code: `<folder name>\Mobile_App_Dev_Group_8\Project's Source Code`
+
+**Bước 4:** Cài đặt các package cần thiết
+
+- Mở các phần mềm có thể biên dịch dự án Flutter như: Android Studio, Visual Studio Code,...Mở folder source code và chạy dòng lệnh `flutter pub get` trên terminal.
+
+**Bước 5:** Chạy ứng dụng
+
+- Mở máy ảo từ Android Studio và chạy dòng lệnh `flutter run` để chạy ứng dụng.
