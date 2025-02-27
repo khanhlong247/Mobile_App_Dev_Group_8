@@ -16,7 +16,15 @@
 
 **Đối tượng sử dụng (phạm vi người dùng):** bao gồm các cá nhân có mong muốn lưu lại các khoảnh khắc trong chuyến đi du lịch và ghi lại cảm nhận của bản thân đối với khoảnh khắc đó.
 
-### 3. Các tính năng chính
+### 3. Công nghệ sử dụng
+
+- Ngôn ngữ lập trình: Dart
+  
+- Framework: Flutter
+
+- Cơ sở dữ liệu: Firebase Firestore
+
+### 4. Các tính năng chính
   
 #### a. Xác Thực Người Dùng (Authentication)
 
@@ -62,9 +70,9 @@ Trong đó: Các đối tượng Travel được tạo ra từ Class Topic và c
 
 ![Use-case](https://imgur.com/PChNF1Q.png)
 
-#### 4.3. Activity Diagram
+#### 4.3. Sequence Diagram
 
-![Activity Diagram](https://imgur.com/QPeM5l4.jpeg)
+![Sequence Diagram](https://imgur.com/KeUzLr7.png)
 
 ### 5. Một số giao diện
 
@@ -88,7 +96,21 @@ Trong đó: Các đối tượng Travel được tạo ra từ Class Topic và c
 
 ![Tìm kiếm Travel](https://imgur.com/265q6Y5.png)
 
-### 6. Cài đặt và chạy ứng dụng
+### 6. Cấu trúc file của ứng dụng
+
+![Cấu trúc file](https://imgur.com/MfzZdhv.png)
+
+Cấu trúc file của ứng dụng được thiết kế dựa trên mô hình MVC (Model - View - Control) giúp ứng dụng dễ dàng theo dõi và dễ bảo trì.
+
+- models: Chứa file các đối tượng topic (Travel) và post (Trip).
+
+- screens (tương đương "View"): Chứa các file màn hình chính để hiển thị giao diện người dùng.
+
+- controllers: Chứa các file liên quan tới logic, kết nối giữa người dùng với hệ thống và với các ứng dụng bên ngoài.
+
+Ngoài ra, folder "widgets" chứa các mẫu giao diện sử dụng nhiều trong dự án như navigation bar, button.
+
+### 7. Cài đặt và chạy ứng dụng
 
 #### Yêu cầu: Đã cài đặt Android Studio, Flutter SDK, Dart SDK.
 
