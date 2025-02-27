@@ -72,7 +72,7 @@ Trong đó: Các đối tượng Travel được tạo ra từ Class Topic và c
 
 #### 4.3. Sequence Diagram
 
-![Sequence Diagram](https://imgur.com/KeUzLr7.png)
+![Sequence Diagram](https://imgur.com/VlXYT3h.png)
 
 ### 5. Một số giao diện
 
