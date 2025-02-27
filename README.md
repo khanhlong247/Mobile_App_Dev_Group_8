@@ -58,45 +58,45 @@ Cho phép người dùng:
 - Chụp ảnh trực tiếp bằng camera.
 - Tải ảnh từ thư viện thiết bị.
 
-### 4. Phân tích và thiết kế phần mềm
+### 5. Phân tích và thiết kế phần mềm
 
-#### 4.1. Class Diagram
+#### 5.1. Class Diagram
 
 ![Class Diagram](https://imgur.com/vIDWyNQ.png)
 
 Trong đó: Các đối tượng Travel được tạo ra từ Class Topic và các đối tượng Trip được tạo ra từ Class Post.
 
-#### 4.2. Use-case
+#### 5.2. Use-case
 
 ![Use-case](https://imgur.com/PChNF1Q.png)
 
-#### 4.3. Sequence Diagram
+#### 5.3. Sequence Diagram
 
 ![Sequence Diagram](https://imgur.com/VlXYT3h.png)
 
-### 5. Một số giao diện
+### 6. Một số giao diện
 
-#### 5.1. Đăng nhập
+#### 6.1. Đăng nhập
 
 ![Màn hình đăng nhập](https://imgur.com/ilWPHQR.png)
 
-#### 5.2. Đăng ký
+#### 6.2. Đăng ký
 
 ![Màn hình đăng ký](https://imgur.com/VtQKdhR.png)
 
-#### 5.3. Danh sách các Travel
+#### 6.3. Danh sách các Travel
 
 ![Danh sách Travel](https://imgur.com/OeDBpkT.png)
 
-#### 5.4. Danh sách các Trip
+#### 6.4. Danh sách các Trip
 
 ![Danh sách Trip](https://imgur.com/fPzEklB.png)
 
-#### 5.5. Tìm kiếm Travel
+#### 6.5. Tìm kiếm Travel
 
 ![Tìm kiếm Travel](https://imgur.com/265q6Y5.png)
 
-### 6. Cấu trúc file của ứng dụng
+### 7. Cấu trúc file của ứng dụng
 
 ![Cấu trúc file](https://imgur.com/MfzZdhv.png)
 
@@ -110,7 +110,7 @@ Cấu trúc file của ứng dụng được thiết kế dựa trên mô hình 
 
 Ngoài ra, folder "widgets" chứa các mẫu giao diện sử dụng nhiều trong dự án như navigation bar, button.
 
-### 7. Cài đặt và chạy ứng dụng
+### 8. Cài đặt và chạy ứng dụng
 
 #### Yêu cầu: Đã cài đặt Android Studio, Flutter SDK, Dart SDK.
 
