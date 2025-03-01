@@ -134,7 +134,7 @@ Ngoài ra, folder "widgets" chứa các mẫu giao diện sử dụng nhiều tr
 
 ### 9. Demo
 
-**link demo: https://khanhlong247.github.io/**
+**Link demo: https://khanhlong247.github.io/**
 
 **Tài khoản thử nghiệm:**
 
